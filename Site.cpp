@@ -1,7 +1,7 @@
 #include "Site.h"
 
 
-travelGuide::travelGuide(istream& in) // конструктор, входным параметром которого является поток входных данных
+travelGuide::travelGuide(istream& in) // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, РІС…РѕРґРЅС‹Рј РїР°СЂР°РјРµС‚СЂРѕРј РєРѕС‚РѕСЂРѕРіРѕ СЏРІР»СЏРµС‚СЃСЏ РїРѕС‚РѕРє РІС…РѕРґРЅС‹С… РґР°РЅРЅС‹С…
 {
 	getline(in, name);
 	getline(in, name);
@@ -17,23 +17,23 @@ travelGuide::travelGuide(istream& in) // конструктор, входным параметром которог
 	article = rand() % 10000;
 }
 
-void travelGuide::getGuide()//для вывода на экран
+void travelGuide::getGuide()//РґР»СЏ РІС‹РІРѕРґР° РЅР° СЌРєСЂР°РЅ
 {
 
-	cout << "Название: " + name << endl;
-	cout << "Издательство: " + publisher << endl;
-	cout << "Автора: " << autor << endl;
-	cout << "Год выпуска: " << year << endl;
-	cout << "Количество страниц: " << page << endl;
-	cout << "Наличие фото: " << photo << endl;
-	cout << "Наличие карты: " << map << endl;
-	cout << "Переплет: " << binding << endl;
-	cout << "Формат: " << format << endl;
-	cout << "Тираж: " << curculation << endl;
+	cout << "РќР°Р·РІР°РЅРёРµ: " + name << endl;
+	cout << "РР·РґР°С‚РµР»СЊСЃС‚РІРѕ: " + publisher << endl;
+	cout << "РђРІС‚РѕСЂР°: " << autor << endl;
+	cout << "Р“РѕРґ РІС‹РїСѓСЃРєР°: " << year << endl;
+	cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂР°РЅРёС†: " << page << endl;
+	cout << "РќР°Р»РёС‡РёРµ С„РѕС‚Рѕ: " << photo << endl;
+	cout << "РќР°Р»РёС‡РёРµ РєР°СЂС‚С‹: " << map << endl;
+	cout << "РџРµСЂРµРїР»РµС‚: " << binding << endl;
+	cout << "Р¤РѕСЂРјР°С‚: " << format << endl;
+	cout << "РўРёСЂР°Р¶: " << curculation << endl;
 	cout << "=================================" << endl;
-	cout << "Артикль " << article << endl;
+	cout << "РђСЂС‚РёРєР»СЊ " << article << endl;
 }
-ostream& travelGuide::save(ostream& out) //для сохранения в файл
+ostream& travelGuide::save(ostream& out) //РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РІ С„Р°Р№Р»
 {
 	out << name << endl;
 	out << publisher << endl;
@@ -68,7 +68,7 @@ travelGuide* warehouse::retProduct(int index)
 		}
 		else if (items[i]->article == index && items[i]->count == 0)
 		{
-			cerr << "Извините, продукта в наличие пока нет!" << endl;
+			cerr << "РР·РІРёРЅРёС‚Рµ, РїСЂРѕРґСѓРєС‚Р° РІ РЅР°Р»РёС‡РёРµ РїРѕРєР° РЅРµС‚!" << endl;
 		}
 	}
 }
@@ -85,8 +85,8 @@ void warehouse::setItems(vector<travelGuide*> inItems)
 
 void warehouse::setCount(travelGuide* tmp)
 {
-	cout << "Текущее количество товара с артиклем " << tmp->article << " :" << tmp->count << endl;
-	cout << "Введите новое количество данного товара: "; cin >> tmp->count;
+	cout << "РўРµРєСѓС‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂР° СЃ Р°СЂС‚РёРєР»РµРј " << tmp->article << " :" << tmp->count << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґР°РЅРЅРѕРіРѕ С‚РѕРІР°СЂР°: "; cin >> tmp->count;
 }
 
 vector<travelGuide*>& Shop::createShop(istream& in)
@@ -102,7 +102,7 @@ vector<travelGuide*>& Shop::createShop(istream& in)
 	return items;
 }
 
-bool Shop::checkItem(int index) //возвращает 1, если есть товар с артикулом index
+bool Shop::checkItem(int index) //РІРѕР·РІСЂР°С‰Р°РµС‚ 1, РµСЃР»Рё РµСЃС‚СЊ С‚РѕРІР°СЂ СЃ Р°СЂС‚РёРєСѓР»РѕРј index
 {
 	for (unsigned int i = 0; i < items.size(); i++)
 	{
@@ -130,7 +130,7 @@ travelGuide* Shop::retProduct(int index)
 			return wh->retProduct(index);
 		}
 	}
-	cout << "Ошибка, товар не найден." << endl;
+	cout << "РћС€РёР±РєР°, С‚РѕРІР°СЂ РЅРµ РЅР°Р№РґРµРЅ." << endl;
 	return nullptr;
 }
 
@@ -139,11 +139,11 @@ void Site::createSite()
 	s1 = new Shop();
 	s2 = new Shop();
 	s3 = new Shop();
-	/* Попытка открытия файла с базой первого магазина*/
+	/* РџРѕРїС‹С‚РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° СЃ Р±Р°Р·РѕР№ РїРµСЂРІРѕРіРѕ РјР°РіР°Р·РёРЅР°*/
 	try
 	{
 		fs1.open("shop1.txt", ios_base::in);
-		if (!fs1.is_open()) throw "Не удалось открыть файл с базой первого магазина.";
+		if (!fs1.is_open()) throw "РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» СЃ Р±Р°Р·РѕР№ РїРµСЂРІРѕРіРѕ РјР°РіР°Р·РёРЅР°.";
 	}
 	catch (const char* serr)
 	{
@@ -155,11 +155,11 @@ void Site::createSite()
 	}
 	s1->createShop(fs1);
 	fs1.close();
-	/* Попытка открытия файла с базой второго магазина*/
+	/* РџРѕРїС‹С‚РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° СЃ Р±Р°Р·РѕР№ РІС‚РѕСЂРѕРіРѕ РјР°РіР°Р·РёРЅР°*/
 	try
 	{
 		fs2.open("shop1.txt", ios_base::in);
-		if (!fs2.is_open()) throw "Не удалось открыть файл с базой первого магазина.";
+		if (!fs2.is_open()) throw "РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» СЃ Р±Р°Р·РѕР№ РїРµСЂРІРѕРіРѕ РјР°РіР°Р·РёРЅР°.";
 	}
 	catch (const char* serr)
 	{
@@ -173,11 +173,11 @@ void Site::createSite()
 	s2->createShop(fs2);
 	fs2.close();
 
-	/* Попытка открытия файла с базой второго магазина*/
+	/* РџРѕРїС‹С‚РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° СЃ Р±Р°Р·РѕР№ РІС‚РѕСЂРѕРіРѕ РјР°РіР°Р·РёРЅР°*/
 	try
 	{
 		fs3.open("shop1.txt", ios_base::in);
-		if (!fs3.is_open()) throw "Не удалось открыть файл с базой первого магазина.";
+		if (!fs3.is_open()) throw "РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» СЃ Р±Р°Р·РѕР№ РїРµСЂРІРѕРіРѕ РјР°РіР°Р·РёРЅР°.";
 	}
 	catch (const char* serr)
 	{
@@ -191,7 +191,7 @@ void Site::createSite()
 	fs3.close();
 
 }
-void Site::saveSite()// метод для сохранения сайта
+void Site::saveSite()// РјРµС‚РѕРґ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ СЃР°Р№С‚Р°
 {
 	fs1.open("shop1.txt", ios_base::out);
 	fs1 << s1->count << endl;
@@ -222,57 +222,57 @@ travelGuide* Site::findGuide(int finde_article)
 
 	if (s1->checkItem(finde_article))
 	{
-		cout << "Продукт нашелся в магазине " << s1 << ". Идет проверка наличия на складе..." << endl;
+		cout << "РџСЂРѕРґСѓРєС‚ РЅР°С€РµР»СЃСЏ РІ РјР°РіР°Р·РёРЅРµ " << s1 << ". РРґРµС‚ РїСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РЅР° СЃРєР»Р°РґРµ..." << endl;
 		if (s1->checkItemAvalible(finde_article))
 		{
-			cout << "Товар найден." << endl;
+			cout << "РўРѕРІР°СЂ РЅР°Р№РґРµРЅ." << endl;
 			return s1->retProduct(finde_article);
 
 		}
-		cout << "К сожалению, в наличие товара нет." << endl;
+		cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, РІ РЅР°Р»РёС‡РёРµ С‚РѕРІР°СЂР° РЅРµС‚." << endl;
 		return nullptr;
 	}
 	else if (s2->checkItem(finde_article))
 	{
-		cout << "Продукт нашелся в магазине " << s2 << ". Идет проверка наличия на складе..." << endl;
+		cout << "РџСЂРѕРґСѓРєС‚ РЅР°С€РµР»СЃСЏ РІ РјР°РіР°Р·РёРЅРµ " << s2 << ". РРґРµС‚ РїСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РЅР° СЃРєР»Р°РґРµ..." << endl;
 		if (s2->checkItemAvalible(finde_article))
 		{
 			return s2->retProduct(finde_article);
 		}
-		cout << "К сожалению, в наличие товара нет." << endl;
+		cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, РІ РЅР°Р»РёС‡РёРµ С‚РѕРІР°СЂР° РЅРµС‚." << endl;
 		return nullptr;
 	}
 	else if (s3->checkItem(finde_article))
 	{
-		cout << "Продукт нашелся в магазине " << s3 << ". Идет проверка наличия на складе..." << endl;
+		cout << "РџСЂРѕРґСѓРєС‚ РЅР°С€РµР»СЃСЏ РІ РјР°РіР°Р·РёРЅРµ " << s3 << ". РРґРµС‚ РїСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ РЅР° СЃРєР»Р°РґРµ..." << endl;
 		if (s3->checkItemAvalible(finde_article))
 		{
 			return s3->retProduct(finde_article);
 		}
-		cout << "К сожалению, в наличие товара нет." << endl;
+		cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, РІ РЅР°Р»РёС‡РёРµ С‚РѕРІР°СЂР° РЅРµС‚." << endl;
 		return nullptr;
 	}
 	else
 	{
-		cerr << "Данный путеводитель не был найден ни в одном из магазинов." << endl;
+		cerr << "Р”Р°РЅРЅС‹Р№ РїСѓС‚РµРІРѕРґРёС‚РµР»СЊ РЅРµ Р±С‹Р» РЅР°Р№РґРµРЅ РЅРё РІ РѕРґРЅРѕРј РёР· РјР°РіР°Р·РёРЅРѕРІ." << endl;
 	}
 }
 
 void Site::getSite()
 {
-	cout << "Товары первого магазина: " << endl;
+	cout << "РўРѕРІР°СЂС‹ РїРµСЂРІРѕРіРѕ РјР°РіР°Р·РёРЅР°: " << endl;
 	for (unsigned int i = 0; i < s1->items.size(); i++)
 	{
 
 		s1->items[i]->getGuide();
 	}
-	cout << "Товары второго магазина: " << endl;
+	cout << "РўРѕРІР°СЂС‹ РІС‚РѕСЂРѕРіРѕ РјР°РіР°Р·РёРЅР°: " << endl;
 	for (unsigned int i = 0; i < s2->items.size(); i++)
 	{
 
 		s2->items[i]->getGuide();
 	}
-	cout << "Товары третьего магазина: " << endl;
+	cout << "РўРѕРІР°СЂС‹ С‚СЂРµС‚СЊРµРіРѕ РјР°РіР°Р·РёРЅР°: " << endl;
 	for (unsigned int i = 0; i < s3->items.size(); i++)
 	{
 
